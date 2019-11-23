@@ -1,2 +1,2 @@
-export { default as PlainText } from './lib/svelte/PlainText.svelte';
-export { default as PlaceholderText } from './lib/svelte/PlaceholderText.svelte';
+export { default as TextInput } from './lib/svelte/TextInput.svelte';
+export { default as TextInputWithPlaceholder } from './lib/svelte/TextInputWithPlaceholder.svelte';

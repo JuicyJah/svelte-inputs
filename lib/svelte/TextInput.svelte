@@ -17,4 +17,4 @@
   display: inline;
 }
 </style>
-<input class="svelte-inputs-input {className ? className : ''}" bind:value={value} placeholder={placeholder} on:change={() => change(value)} />
+<input class="svelte-inputs-input {className ? className : ''}" bind:value={value} placeholder={placeholder} on:change={() => change(value)} type="text" />

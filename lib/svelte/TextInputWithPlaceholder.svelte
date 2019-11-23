@@ -59,5 +59,5 @@
 </style>
 <div class="svelte-inputs-input-placeholder" class:focus={focus === true}>
   <label for="svelte-inputs-input-placeholder-{id}">{placeholder ? placeholder : ''}</label>
-  <input id="svelte-inputs-input-placeholder-{id}" class={className ? className : ''} bind:value={value} on:change={() => onchange(value)} on:blur={onBlur} on:focus={onFocus} />
+  <input id="svelte-inputs-input-placeholder-{id}" class={className ? className : ''} bind:value={value} on:change={() => onchange(value)} on:blur={onBlur} on:focus={onFocus} type="text" />
 </div>
