@@ -6,5 +6,20 @@
   },
   "peerDependencies": {
     "svelte": "^3.0.0"
-  }
+  },
+  "repository": "JuicyJah/svelte-inputs",
+  "author": "JuicyJah <help@juicyjah.com>",
+  "description": "Basic Input Components for No Muss, No Fuss Plug and Play with Svelte",
+  "license": "GPL-3.0",
+  "main": "index.js",
+  "keywords": [
+    "svelte",
+    "input",
+    "form",
+    "field",
+    "component",
+    "string",
+    "text",
+    "juicyjah"
+  ]
 }
