@@ -153,3 +153,8 @@ in the [sveltejs template](https://github.com/sveltejs/template) (/public/global
 
 `className` is a special property that allows you to give special classes to the inputs.
 Still, to use these classes will require use of one of the methods mentioned above.
+
+# Development
+
+If you'd like to contribute to the development of this project and extend the `svelte-inputs`
+library, please join us on GitHub!
