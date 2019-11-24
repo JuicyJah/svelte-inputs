@@ -15,11 +15,13 @@
 
   function onFocus(){
     focus = true
+    onfocus(value)
   }
 
   function onBlur(){
     if(!value || value.trim() == '')
       focus = false
+    onblur(value)
   }
 
   let id = null
@@ -59,5 +61,10 @@
 </style>
 <div class="svelte-inputs-input-placeholder" class:focus={focus === true}>
   <label for="svelte-inputs-input-placeholder-{id}">{placeholder ? placeholder : ''}</label>
-  <input id="svelte-inputs-input-placeholder-{id}" class={className ? className : ''} bind:value={value} on:change={() => onchange(value)} on:blur={onBlur} on:focus={onFocus} type="text" />
+  <input id="svelte-inputs-input-placeholder-{id}"
+    class={className ? className : ''}
+    bind:value={value}
+    on:change={() => onchange(value)}
+    on:blur={onBlur}
+    on:focus={onFocus} type="text" />
 </div>

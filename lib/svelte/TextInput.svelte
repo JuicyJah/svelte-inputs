@@ -7,6 +7,8 @@
   export let placeholder = null
 
   const change = (value) => dispatch('change', value)
+  const blur = (value) => dispatch('blur', value)
+  const focus = (value) => dispatch('focus', value)
 </script>
 <style>
 .svelte-inputs-input{
@@ -17,4 +19,10 @@
   display: inline;
 }
 </style>
-<input class="svelte-inputs-input {className ? className : ''}" bind:value={value} placeholder={placeholder} on:change={() => change(value)} type="text" />
+<input class="svelte-inputs-input{className ? className : ''}"
+  bind:value={value}
+  placeholder={placeholder}
+  on:focus={() => focus(value)}
+  on:change={() => change(value)}
+  on:blur={() => blur(value)}
+  type="text" />
