@@ -1,33 +1,60 @@
 <script>
   import { createEventDispatcher, onMount } from 'svelte'
-  import { guid } from '../util/inputguid.js'
+  import { guid, Mask } from '../util/inputhelper.js'
   let dispatch = createEventDispatcher()
 
   export let className = null
   export let value = null
+  let rawvalue = null
   export let placeholder = null
+  export let mask = {
+    override: false,
+    mask: null
+  }
+  $: _mask = new Mask(mask)
 
   let focus = false
 
   const onchange = (value) => dispatch('change', value)
   const onfocus = (value) => dispatch('focus', value)
   const onblur = (value) => dispatch('blur', value)
+  const onkeyup = (value) => dispatch('keyup', value)
 
   function onFocus(){
     focus = true
-    onfocus(value)
+    returnEvent(onfocus)
   }
 
   function onBlur(){
-    if(!value || value.trim() == '')
+    if(!rawvalue || rawvalue.trim() == '')
       focus = false
-    onblur(value)
+    returnEvent(onblur)
+  }
+
+  function onKeyup(event){
+    if(_mask)
+      _mask.onKeyEvent(event)
+    returnEvent(onkeyup)
+  }
+
+  function returnEvent(func){
+    rawvalue = _mask ? _mask.getDisplayValue() : rawvalue
+    value = _mask ? _mask.getValue() : rawvalue
+    if(func)
+      func(value)
   }
 
   let id = null
   onMount(() => {
-    if(value && value.trim() != '')
+    rawvalue = value
+    if(rawvalue && rawvalue.trim() != ''){
       focus = true
+    }
+    if(_mask){
+      _mask.setValue(rawvalue)
+      rawvalue = _mask.getDisplayValue()
+      returnEvent()
+    }
     id = guid()
   })
 </script>
@@ -63,8 +90,9 @@
   <label for="svelte-inputs-input-placeholder-{id}">{placeholder ? placeholder : ''}</label>
   <input id="svelte-inputs-input-placeholder-{id}"
     class={className ? className : ''}
-    bind:value={value}
-    on:change={() => onchange(value)}
+    bind:value={rawvalue}
+    on:change={() => returnEvent(onchange)}
     on:blur={onBlur}
-    on:focus={onFocus} type="text" />
+    on:focus={onFocus} type="text"
+    on:keyup={onKeyup} />
 </div>
