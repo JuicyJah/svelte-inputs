@@ -7,7 +7,13 @@
 
 Basic Input Components for No Muss, No Fuss Plug and Play with Svelte
 
-# Background
+## Features!
+
+- Event Callbacks
+- Data binding
+- Input Masking
+
+## Background
 
 `svelte-inputs` was made on the idea that there should be simple, straightforward inputs, at a modular level for `Svelte`. No more fussing about!
 
@@ -29,13 +35,16 @@ All text inputs support the properties:
 
 - value
 - placeholder
+- disabled
 - className (see notes on styling)
+- mask
 
 All text inputs support the events:
 
 - on:change
 - on:focus
 - on:blur
+- on:keyup
 
 Text Inputs are imported with the ES6 `import`, though `Babel` is also recommended.
 It may also be helpful to alias imports for inputs with longer names.
@@ -125,6 +134,28 @@ The `placeholder` property is not required, but it behaves much like a basic `Te
 ```
 
 In keeping with basic `Svelte`, the `placeholder` property also supports binding.
+
+# Masking
+
+`svelte-inputs` comes with some basic masking.
+
+A mask can be given to a component through the `mask` property.
+This property accepts a config object in the given form below:
+
+```js
+{
+  mask: "(xxx) xxx-xxxx",
+  override: true,
+  enforceLength: true
+}
+```
+
+### Properties
+
+- `mask`: `String`; This is the actual mask that you want to use for the input. `x` characters denote user input characters. All other characters will be included as part of the mask.
+- `override`: `Boolean`; This tells the component whether or not to override the bound value property with the mask (`true`) or return only the raw characters entered by the user (`false`).
+  In either case, the mask will still display.
+- `enforceLength`: `Boolean`; This determines if the mask should enforce the length of the input based on the length of the mask.
 
 # Styling
 

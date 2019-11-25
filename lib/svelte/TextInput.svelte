@@ -7,6 +7,7 @@
   export let value = null
   let rawvalue = null
   export let placeholder = null
+  export let disabled = false
   export let mask = {
     override: false,
     mask: null
@@ -53,12 +54,18 @@
   color: inherit;
   display: inline;
 }
+.svelte-inputs-input.disabled{
+  cursor: not-allowed;
+  background-color: #bbb;
+}
 </style>
 <input id="svelte-inputs-input-{id}" class="svelte-inputs-input{className ? className : ''}"
+  class:disabled={disabled === true}
   bind:value={rawvalue}
   placeholder={placeholder}
   on:focus={() => returnEvent(onfocus)}
   on:change={() => returnEvent(onchange)}
   on:blur={() => returnEvent(onblur)}
   on:keyup={onKeyup}
+  disabled={disabled === true}
   type="text" />
