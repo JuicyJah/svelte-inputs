@@ -1,3 +1,4 @@
-priv
-node_modules
+priv/
+node_modules/
 *.code-workspace
+.DS_Store
