@@ -1,5 +1,4 @@
-img/
+priv/
+node_modules/
 *.code-workspace
-node_modules
-priv
 .DS_Store
