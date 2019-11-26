@@ -13,6 +13,14 @@ Basic Input Components for No Muss, No Fuss Plug and Play with Svelte
 - Data binding
 - Input Masking
 
+## Contents:
+
+- [Installation](#Installation)
+- [Usage](#Usage)
+- [Masking](#Masking)
+- [Styling](#Styling)
+- [Development](#Development)
+
 ## Background
 
 `svelte-inputs` was made on the idea that there should be simple, straightforward inputs, at a modular level for `Svelte`. No more fussing about!
