@@ -146,7 +146,9 @@ This property accepts a config object in the given form below:
 {
   mask: "(xxx) xxx-xxxx",
   override: true,
-  enforceLength: true
+  enforceLength: true,
+  alwaysVisible: false,
+  defaultChar: ' '
 }
 ```
 
@@ -156,6 +158,8 @@ This property accepts a config object in the given form below:
 - `override`: `Boolean`; This tells the component whether or not to override the bound value property with the mask (`true`) or return only the raw characters entered by the user (`false`).
   In either case, the mask will still display.
 - `enforceLength`: `Boolean`; This determines if the mask should enforce the length of the input based on the length of the mask.
+- `alwaysVisible`: `Boolean`; determines if the mask should be visible at all times. If false, the mask will only appear as characters are typed. Default is `false`.
+- `defaultChar`: `String`; The default character (or string) used as a placeholder for each `x` character in the mask. This only applied to a mask that is also configured to be `alwaysVisible: true`.
 
 # Styling
 
