@@ -21,7 +21,7 @@
 
   function onKeyup(event){
     if(_mask)
-      _mask.onKeyEvent(event)
+      _mask.onKeyEvent(event, () => returnEvent(onkeyup) )
     returnEvent(onkeyup)
   }
 
